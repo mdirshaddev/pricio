@@ -1,7 +1,7 @@
 {
   "name": "mdirshad",
   "homepage": "https://mdirshad.vercel.app",
-  "description": "💠 Personal website and blog made using Next.js, TypeScript, Tailwind CSS, Sentry, Google Analytics, MDX Bundler and Prisma with PostgreSQL (Neon) using Terraform for provisioning Vercel with pipeline built on GitHub Actions.",
+  "description": "PNPM Workspace project.",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
