@@ -1,0 +1,28 @@
+query GithubOverview($first: Int, $username: String!) {
+  user(login: $username) {
+    name
+    email
+    websiteUrl
+    bio
+    url
+    avatarUrl
+    company
+    isGitHubStar
+    twitterUsername
+    socialAccounts(first: $first) {
+      edges {
+        node {
+          url
+          provider
+          displayName
+        }
+      }
+    }
+    status {
+      emoji
+      emojiHTML
+      message
+    }
+    location
+  }
+}
