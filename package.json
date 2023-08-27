@@ -1,0 +1,31 @@
+{
+  "name": "mdirshad",
+  "homepage": "https://mdirshad.vercel.app",
+  "description": "💠 Personal website and blog made using Next.js, TypeScript, Tailwind CSS, Sentry, Google Analytics, MDX Bundler and Prisma with PostgreSQL (Neon) using Terraform for provisioning Vercel with pipeline built on GitHub Actions.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdirshaddev/mdirshad.git"
+  },
+  "scripts": {
+    "format:check": "prettier -c .",
+    "format:write": "prettier -w ."
+  },
+  "author": {
+    "name": "Md Irshad",
+    "email": "mdirshaddev@gmail.com",
+    "url": "https://mdirshad.vercel.app"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@commitlint/format": "^17.4.4",
+    "@commitlint/types": "^17.4.4",
+    "@types/node": "^20.4.4",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  }
+}
