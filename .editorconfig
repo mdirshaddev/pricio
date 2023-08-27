@@ -1,0 +1,10 @@
+# top most EditorConfig file
+root = true
+
+[*.{ts,tsx,jsx,js,yaml,yml,md,mdx,.env*}]
+end_of_line = lf
+insert_final_newline = true
+
+[{.sentryclirc,.env}]
+end_of_line = lf
+insert_final_newline = true
