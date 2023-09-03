@@ -28,7 +28,7 @@ const Page: React.FC = async (): Promise<JSX.Element> => {
             If you got some questions, you can leave them on the{' '}
             <a
               target='_blank'
-              href='https://github.com/mdirshaddev/mdirshad/discussions/1'
+              href='https://github.com/mdirshaddev/mdirshad/discussions/2'
               className='cursor-newtab font-bold underline '>
               AMA discussions
             </a>

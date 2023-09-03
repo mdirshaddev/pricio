@@ -2,7 +2,7 @@
 import { captureException } from '@sentry/nextjs';
 
 // Lib
-import { getAccessToken } from 'src/lib/spotify/getAccessToken';
+import { getAccessToken } from 'src/lib/spotify';
 
 interface SpotifyData {
   is_playing: boolean;

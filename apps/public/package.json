@@ -17,7 +17,11 @@
     "format:write": "prettier --write .",
     "format:check": "prettier --check .",
     "storybook": "storybook dev -p 6006 --no-open",
-    "build-storybook": "storybook build --output-dir public-storybook-static"
+    "build-storybook": "storybook build --output-dir public-storybook-static",
+    "generate-fcm": "node ./scripts/generate-firebase-messaging-sw.js",
+    "generate-fcm:production:local": "node -r dotenv/config ./scripts/generate-firebase-messaging-sw.js dotenv_config_path=./.env.local dotenv_config_debug=true",
+    "build:locally": "pnpm build && pnpm generate-fcm:production:local",
+    "vercel-build": "pnpm build && pnpm generate-fcm"
   },
   "author": {
     "name": "Md Irshad",
@@ -77,9 +81,12 @@
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
     "encoding": "^0.1.13",
+    "firebase": "^10.3.0",
+    "graphql": "^16.8.0",
     "graphql-request": "5.1.0",
     "gray-matter": "^4.0.3",
     "hierarchy": "^1.0.0",
+    "localforage": "^1.10.0",
     "mdx-bundler": "^9.2.1",
     "next": "13.4.13",
     "next-pwa": "^5.6.0",
@@ -127,6 +134,7 @@
     "@types/react-dom": "18.2.7",
     "@types/react-swipeable-views": "^0.13.2",
     "autoprefixer": "10.4.14",
+    "dotenv": "^16.3.1",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "eslint-plugin-storybook": "^0.6.13",

@@ -59,8 +59,7 @@ const withPWA = withPWAConfig({
   register: false,
   skipWaiting: false,
   clientsClaim: true,
-  swSrc: './src/services/worker/service-worker.js',
-  offlineGoogleAnalytics: true
+  swSrc: './src/services/worker/service-worker.js'
 });
 
 module.exports = withSentryConfig(

@@ -1,12 +1,16 @@
 'use client';
 
 // React
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Shadcn - Toast
-import { ToastAction } from '@shadcn/toast';
-import { Toaster } from '@shadcn/toaster';
 import { useToast } from '@shadcn/use-toast';
+
+// Shadcn - Toaster
+import { Toaster } from '@shadcn/toaster';
+
+// Lib - firebase
+import { getFCMToken, onMessageListener } from 'src/lib/firebase';
 
 interface window extends Window {
   workbox?: any;
@@ -15,8 +19,6 @@ interface window extends Window {
 declare const window: window;
 
 export function ToastNotification(props: React.PropsWithChildren) {
-  const { children } = props;
-
   const { toast } = useToast();
 
   React.useEffect(() => {
@@ -29,15 +31,19 @@ export function ToastNotification(props: React.PropsWithChildren) {
       // add event listeners to handle any of PWA lifecycle event
       // https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-window.Workbox#events
       wb.addEventListener('installed', (event: any) => {
-        toast({ title: 'Your App is now cached available for offline use' });
+        console.log(`Event ${event.type} is triggered.`);
+        console.log(event);
+        toast({ title: 'Registration successful' });
       });
 
       wb.addEventListener('controlling', (event: any) => {
-        //
+        console.log(`Event ${event.type} is triggered.`);
+        console.log(event);
       });
 
       wb.addEventListener('activated', (event: any) => {
-        //
+        console.log(`Event ${event.type} is triggered.`);
+        console.log(event);
       });
 
       // A common UX pattern for progressive web apps is to show a banner when a service worker has updated and waiting to install.
@@ -57,45 +63,40 @@ export function ToastNotification(props: React.PropsWithChildren) {
           });
 
           // Send a message to the waiting service worker, instructing it to activate.
-          wb.messageSW({ type: 'SKIP_WAITING' });
+          wb.messageSkipWaiting();
         } else {
           console.log(
-            'User rejected to reload the web app, keep using old verion. New verion will be automatically load when user open the app next time.'
+            'User rejected to reload the web app, keep using old version. New version will be automatically load when user open the app next time.'
           );
         }
       };
 
       wb.addEventListener('waiting', promptNewVersionAvailable);
-      wb.addEventListener('externalwaiting', promptNewVersionAvailable);
 
       // ISSUE - this is not working as expected, why?
       // I could only make message event listenser work when I manually add this listenser into sw.js file
       wb.addEventListener('message', (event: any) => {
-        //
+        console.log(`Event ${event.type} is triggered.`);
+        console.log(event);
       });
-
-      /*
-      wb.addEventListener('redundant', event => {
-        console.log(`Event ${event.type} is triggered.`)
-        console.log(event)
-      })
-
-      wb.addEventListener('externalinstalled', event => {
-        console.log(`Event ${event.type} is triggered.`)
-        console.log(event)
-      })
-
-      wb.addEventListener('externalactivated', event => {
-        console.log(`Event ${event.type} is triggered.`)
-        console.log(event)
-      })
-      */
 
       // never forget to call register as auto register is turned off in next.config.js
       wb.register();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    getFCMToken();
+
+    onMessageListener().then(payload => {
+      toast({
+        title: payload.notification?.title,
+        description: payload.notification?.body
+      });
+    });
+  }, []);
+
+  const { children } = props;
 
   return (
     <React.Fragment>

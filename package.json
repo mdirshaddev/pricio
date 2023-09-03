@@ -11,7 +11,8 @@
   },
   "scripts": {
     "format:check": "prettier -c .",
-    "format:write": "prettier -w ."
+    "format:write": "prettier -w .",
+    "lighthouse:public": "lighthouse http://localhost:3000 --output html --output-path ./reports/report.html"
   },
   "author": {
     "name": "Md Irshad",

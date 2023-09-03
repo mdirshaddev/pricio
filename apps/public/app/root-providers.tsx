@@ -3,20 +3,20 @@
 // React
 import React from 'react';
 
-// React Query
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-// React Query Devtool
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-
 // Modules - Notifications
 import { ToastNotification } from 'src/modules/notifications';
+
+// Contexts - Preload
+import { PreloadProvider } from 'src/contexts';
+
+// React Query
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // Modules - Theme
 import { ThemeProvider } from 'src/modules/themes';
 
-// Contexts - Preload
-import { PreloadProvider } from 'src/contexts';
+// React Query Devtool
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const RootProviders: React.FC<React.PropsWithChildren> = (
   props
@@ -26,16 +26,16 @@ const RootProviders: React.FC<React.PropsWithChildren> = (
   const { children } = props;
 
   return (
-    <PreloadProvider>
-      <QueryClientProvider client={queryClientRef.current}>
-        <ToastNotification>
+    <ToastNotification>
+      <PreloadProvider>
+        <QueryClientProvider client={queryClientRef.current}>
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
             {children}
           </ThemeProvider>
-        </ToastNotification>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </PreloadProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </PreloadProvider>
+    </ToastNotification>
   );
 };
 

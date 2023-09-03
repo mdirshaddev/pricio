@@ -1,1 +1,1 @@
-export { ToastNotification } from './pwa-notification';
+export { ToastNotification } from './notification';

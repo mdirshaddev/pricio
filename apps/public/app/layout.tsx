@@ -18,7 +18,7 @@ import { fontSans } from '@shadcn/lib/fonts';
 import { siteConfig } from 'configs';
 
 // Root provider
-import { RootProviders } from 'app/rootProviders';
+import { RootProviders } from 'app/root-providers';
 
 // Modules - Layout
 import { SiteHeader, SiteFooter } from 'src/modules/layouts';

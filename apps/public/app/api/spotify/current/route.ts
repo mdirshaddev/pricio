@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 import { captureException } from '@sentry/nextjs';
 
 // Spotify Current Playing
-import { getCurrentPlaying } from 'src/lib/spotify/getCurrentPlaying';
+import { getCurrentPlaying } from 'src/lib/spotify';
 
 export const revalidate = 0;
 
