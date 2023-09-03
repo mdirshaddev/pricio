@@ -86,3 +86,8 @@ terraform.rc
 # terraform lock and backup files
 *.lock.*
 *.lock.hcl
+
+# service worker files
+**/public/sw.js*
+**/public/worbox-*.js*
+**/public/*-sw*.js*
