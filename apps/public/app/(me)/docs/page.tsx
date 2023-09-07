@@ -5,8 +5,9 @@ import { type Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Md Irshad - Docs',
-  description: 'Best Practises for development, deployment of production'
+  title: 'Md Irshad - 📚 Documentation',
+  description:
+    '🌟 Best Practises for development and deployment of applications'
 };
 
 const Page: React.FC = async (): Promise<JSX.Element> => {

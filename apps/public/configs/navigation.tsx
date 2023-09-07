@@ -20,9 +20,9 @@ export const navigationConfig = {
         external: false
       },
       {
-        name: 'Shorts',
+        name: 'Shelf',
         description: 'Personal Notion Notes',
-        href: '/shorts',
+        href: '/shelf',
         ShortcutIcon: Icons.directions.arrowUpRight,
         Icon: Icons.navigation.blog.notes,
         external: false

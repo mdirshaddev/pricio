@@ -53,8 +53,10 @@ const nextConfig = {
     ]
   },
   webpack: config => {
-    const entry = generateAppDirEntry(config.entry);
-    config.entry = () => entry;
+    if (process.env.NODE_ENV === 'production') {
+      const entry = generateAppDirEntry(config.entry);
+      config.entry = () => entry;
+    }
     return config;
   }
 };

@@ -7,9 +7,6 @@ import type { Metadata } from 'next';
 // Next script
 import Script from 'next/script';
 
-// Vercel Analytics
-import { Analytics } from '@vercel/analytics/react';
-
 // Shadcn
 import { cn } from '@shadcn/lib/utils';
 import { fontSans } from '@shadcn/lib/fonts';
@@ -26,16 +23,18 @@ import { SiteHeader, SiteFooter } from 'src/modules/layouts';
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
+  colorScheme: 'dark',
+  category: 'Personal Website',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' }
   ],
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
+    shortcut: ['/favicon-16x16.png', '/favicon-32x32.png'],
     apple: '/apple-touch-icon.png'
   },
-  manifest: '/manifest.json'
+  manifest: '/manifest.webmanifest'
 };
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
@@ -56,7 +55,6 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
               {children}
             </div>
           </main>
-          <Analytics />
           <SiteFooter />
         </RootProviders>
         <Script

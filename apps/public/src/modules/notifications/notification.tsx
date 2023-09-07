@@ -25,6 +25,7 @@ export function ToastNotification(props: React.PropsWithChildren) {
     if (
       typeof window !== 'undefined' &&
       'serviceWorker' in navigator &&
+      process.env.NODE_ENV === 'production' &&
       window.workbox !== undefined
     ) {
       const wb = window.workbox;
@@ -33,7 +34,10 @@ export function ToastNotification(props: React.PropsWithChildren) {
       wb.addEventListener('installed', (event: any) => {
         console.log(`Event ${event.type} is triggered.`);
         console.log(event);
-        toast({ title: 'Registration successful' });
+        toast({
+          title: 'Md Irshad - PWA Install Successfully',
+          description: 'Your app is now cached for offline use.'
+        });
       });
 
       wb.addEventListener('controlling', (event: any) => {
@@ -83,17 +87,21 @@ export function ToastNotification(props: React.PropsWithChildren) {
       // never forget to call register as auto register is turned off in next.config.js
       wb.register();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    getFCMToken();
+    if (process.env.NODE_ENV === 'production') {
+      getFCMToken();
 
-    onMessageListener().then(payload => {
-      toast({
-        title: payload.notification?.title,
-        description: payload.notification?.body
+      onMessageListener().then(payload => {
+        toast({
+          title: payload.notification?.title,
+          description: payload.notification?.body
+        });
       });
-    });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { children } = props;

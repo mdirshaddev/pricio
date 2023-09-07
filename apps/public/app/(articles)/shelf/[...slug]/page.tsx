@@ -35,7 +35,7 @@ const Page: React.FC<Props> = ({ params, searchParams }): JSX.Element => {
     <React.Fragment>
       <section className='mx-auto max-w-[1400px]'>
         <article className='px-4 lg:px-8'>
-          <div>Blog Article page</div>
+          <div>Shorts Article page</div>
           <div>{JSON.stringify(params)}</div>
           <div>{JSON.stringify(searchParams)}</div>
         </article>

@@ -2,4 +2,4 @@
 
 ## Apps
 
-* **public** - public facing website with multiple integrations 
+- **public** - public facing website with multiple integrations

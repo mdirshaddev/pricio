@@ -1,5 +1,13 @@
+// Next
+import { type Metadata } from 'next';
+
 // React
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: 'Md Irshad - 🧑‍💻 GitHub analytics',
+  description: '📈 My GitHub basic analytics data'
+};
 
 const Page: React.FC = async (): Promise<JSX.Element> => {
   return (
