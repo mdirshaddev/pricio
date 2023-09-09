@@ -19,3 +19,8 @@ pnpm-lock.yaml
 
 # storybook build
 *-storybook-build
+
+# service worker file
+**/sw.js*
+**/worbox-*.js*
+**/*-sw*.js*
