@@ -4,6 +4,9 @@ node_modules
 # pnpm
 .pnpm-store
 
+# env files
+nx-cloud.env
+
 # storybook build
 *-storybook-static
 
