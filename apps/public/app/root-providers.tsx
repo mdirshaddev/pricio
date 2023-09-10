@@ -18,6 +18,9 @@ import { ThemeProvider } from 'src/modules/themes';
 // React Query Devtool
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
+// Framer Motion
+import { AnimatePresence } from 'framer-motion';
+
 const RootProviders: React.FC<React.PropsWithChildren> = (
   props
 ): JSX.Element => {
@@ -26,16 +29,18 @@ const RootProviders: React.FC<React.PropsWithChildren> = (
   const { children } = props;
 
   return (
-    <ToastNotification>
-      <PreloadProvider>
-        <QueryClientProvider client={queryClientRef.current}>
-          <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-            {children}
-          </ThemeProvider>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </PreloadProvider>
-    </ToastNotification>
+    <AnimatePresence>
+      <ToastNotification>
+        <PreloadProvider>
+          <QueryClientProvider client={queryClientRef.current}>
+            <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+              {children}
+            </ThemeProvider>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </PreloadProvider>
+      </ToastNotification>
+    </AnimatePresence>
   );
 };
 
