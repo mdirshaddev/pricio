@@ -131,6 +131,8 @@ module.exports = {
     plugin(function ({ addVariant }) {
       addVariant('hocus', ['&:hover', '&:focus']);
     }),
-    require('tailwindcss-animate')
+    require('tailwindcss-animate'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography')
   ]
 };
