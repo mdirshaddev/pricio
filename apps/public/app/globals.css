@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* Customize these variable */
-  /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
-  --tw-clr-primary-200: 219 255 0;
-  --tw-clr-primary-300: 0 232 135;
-  --tw-clr-primary-400: 0 224 243;
-  --tw-clr-primary-500: 0 196 253;
-
-  --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
-  --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
-  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #00e0f3 */
-  --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -150,7 +136,7 @@
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#33333300, #33333300),
-      linear-gradient(to right, var(--clr-primary-300), var(--clr-primary-400));
+      linear-gradient(to right, rgb(0 232 135), rgb(0 224 243));
     background-size:
       100% 2px,
       0 2px;
