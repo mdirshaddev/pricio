@@ -1,6 +1,12 @@
 // Tailwind
 import 'app/globals.css';
 
+// CSS for MDX
+import 'app/mdx.css';
+
+// css for react youtube embed
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+
 // Next typings
 import type { Metadata } from 'next';
 
