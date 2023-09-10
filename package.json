@@ -10,6 +10,7 @@
     "url": "https://github.com/mdirshaddev/mdirshad.git"
   },
   "scripts": {
+    "nx:build:public": "nx run public:vercel-build",
     "format:check": "prettier -c .",
     "format:write": "prettier -w .",
     "lighthouse:public:locally": "lighthouse http://localhost:3000 --output html --output-path ./reports/report.html"
@@ -26,8 +27,11 @@
     "@commitlint/config-conventional": "^17.6.7",
     "@commitlint/format": "^17.4.4",
     "@commitlint/types": "^17.4.4",
+    "@nrwl/nx-cloud": "^16.4.0",
     "@types/node": "^20.4.4",
     "husky": "^8.0.3",
+    "nx": "^16.8.1",
+    "nx-cloud": "^16.4.0",
     "prettier": "^3.0.0",
     "typescript": "^5.1.6"
   }
